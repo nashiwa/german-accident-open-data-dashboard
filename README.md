@@ -18,7 +18,7 @@ A full-stack open data project for exploring German road accident statistics. Th
 |-- frontend/             Angular dashboard application
 |-- DATA_SOURCES.md       Public source and license attribution
 |-- docker-compose.yml    Local backend/frontend orchestration
-|-- .env.example          Local development environment defaults
+|-- .env.example          Template for local development settings
 `-- .gitignore            Local, generated, duplicate, and internal files excluded from Git
 ```
 
@@ -33,7 +33,7 @@ The `docs/` folder is intentionally ignored because it contains local planning a
 
 ## Quick Start
 
-1. Copy `.env.example` to `.env` if you want to override local settings.
+1. Copy `.env.example` to `.env` and adjust local settings if needed.
 2. Start the supporting services you need. The current compose file runs the backend and frontend containers and expects MySQL to be reachable through the configured host.
 3. Run database migrations from `backend/`.
 4. Import accident data using the Django management command.

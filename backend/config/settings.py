@@ -8,7 +8,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
 
 load_dotenv(PROJECT_ROOT / ".env")
-load_dotenv(PROJECT_ROOT / ".env.example")
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "change-me-for-local-development")
 DEBUG = os.getenv("DJANGO_DEBUG", "true").lower() == "true"

@@ -30,7 +30,7 @@ backend/
 
 ## Environment
 
-Settings are loaded from `.env` and `.env.example` in the project root. Important variables include:
+Settings are loaded from `.env` in the project root. Use `.env.example` as the template. Important variables include:
 
 ```text
 MYSQL_DATABASE
