@@ -13,13 +13,13 @@ A full-stack open data project for exploring German road accident statistics. Th
 
 ```text
 .
-├── backend/              Django REST API, import command, models, tests
-├── data/                 Public fallback CSV data used by the importer
-├── frontend/             Angular dashboard application
-├── DATA_SOURCES.md       Public source and license attribution
-├── docker-compose.yml    Local backend/frontend orchestration
-├── .env.example          Local development environment defaults
-└── .gitignore            Local, generated, duplicate, and internal files excluded from Git
+|-- backend/              Django REST API, import command, models, tests
+|-- data/                 Public fallback CSV data used by the importer
+|-- frontend/             Angular dashboard application
+|-- DATA_SOURCES.md       Public source and license attribution
+|-- docker-compose.yml    Local backend/frontend orchestration
+|-- .env.example          Local development environment defaults
+`-- .gitignore            Local, generated, duplicate, and internal files excluded from Git
 ```
 
 The `docs/` folder is intentionally ignored because it contains local planning and submission notes. Public data attribution is kept in `DATA_SOURCES.md`.

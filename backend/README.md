@@ -14,18 +14,18 @@ Django REST backend for the German accident open data dashboard. It owns the dat
 
 ```text
 backend/
-├── apps/
-│   ├── accidents/        Accident fact model
-│   ├── api/              REST serializers, views, query services, URLs
-│   ├── catalog/          Source and import-run provenance models
-│   ├── core/             Health endpoint
-│   ├── importer/         Source resolver, parsers, loaders, import command
-│   ├── indicators/       Optional indicator/rate model
-│   └── regions/          Region hierarchy model
-├── config/               Django settings and root URLs
-├── manage.py
-├── pytest.ini
-└── requirements.txt
+|-- apps/
+|   |-- accidents/        Accident fact model
+|   |-- api/              REST serializers, views, query services, URLs
+|   |-- catalog/          Source and import-run provenance models
+|   |-- core/             Health endpoint
+|   |-- importer/         Source resolver, parsers, loaders, import command
+|   |-- indicators/       Optional indicator/rate model
+|   `-- regions/          Region hierarchy model
+|-- config/               Django settings and root URLs
+|-- manage.py
+|-- pytest.ini
+`-- requirements.txt
 ```
 
 ## Environment

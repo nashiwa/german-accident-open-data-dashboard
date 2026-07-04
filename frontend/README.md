@@ -14,19 +14,19 @@ Angular dashboard for the German accident open data project. It consumes the Dja
 
 ```text
 frontend/
-├── src/app/
-│   ├── core/                         API service and shared API types
-│   ├── features/
-│   │   ├── accident-explorer/        Aggregate filters and results
-│   │   ├── examiner-questions/       Mandatory question screen
-│   │   ├── map-view/                 Accident point preview
-│   │   ├── rates-rankings/           Rate and ranking view
-│   │   └── sources-imports/          Source/import metadata view
-│   ├── app.routes.ts                 Dashboard routes
-│   └── app.*                         Shell component
-├── angular.json
-├── package.json
-└── tsconfig*.json
+|-- src/app/
+|   |-- core/                         API service and shared API types
+|   |-- features/
+|   |   |-- accident-explorer/        Aggregate filters and results
+|   |   |-- examiner-questions/       Mandatory question screen
+|   |   |-- map-view/                 Accident point preview
+|   |   |-- rates-rankings/           Rate and ranking view
+|   |   `-- sources-imports/          Source/import metadata view
+|   |-- app.routes.ts                 Dashboard routes
+|   `-- app.*                         Shell component
+|-- angular.json
+|-- package.json
+`-- tsconfig*.json
 ```
 
 ## Routes
