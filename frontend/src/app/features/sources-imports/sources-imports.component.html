@@ -1,0 +1,55 @@
+<section class="page">
+  <div class="section-heading">
+    <h2>Sources And Imports</h2>
+    <p>Source metadata, fallback status, licences, and latest import runs.</p>
+  </div>
+
+  <section class="table-card">
+    <h3>Sources</h3>
+    <table *ngIf="sources$ | async as sources">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Provider</th>
+          <th>Licence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let source of sources">
+          <td>{{ source.name }}</td>
+          <td>{{ source.source_type }}</td>
+          <td>{{ source.provider }}</td>
+          <td>{{ source.licence }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="table-card">
+    <h3>Import Runs</h3>
+    <table *ngIf="importRuns$ | async as runs">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Source</th>
+          <th>Rows</th>
+          <th>Started</th>
+          <th>Warnings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let run of runs">
+          <td>{{ run.status }}</td>
+          <td>{{ run.source.name }}</td>
+          <td>{{ run.rows_read }}</td>
+          <td>{{ run.started_at | date: 'short' }}</td>
+          <td>
+            <span *ngIf="run.warnings.length; else noWarnings">{{ run.warnings[0] }}</span>
+            <ng-template #noWarnings>None</ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

@@ -1,0 +1,63 @@
+.page {
+  display: grid;
+  gap: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+}
+
+.section-heading p,
+.muted {
+  margin: 0;
+  color: #607080;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+article,
+.provenance {
+  border: 1px solid #d7dde5;
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+article span {
+  display: block;
+  color: #536170;
+  font-size: 0.9rem;
+}
+
+article strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+article code {
+  display: block;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+  color: #52616f;
+  font-size: 0.78rem;
+}
+
+.provenance h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.provenance p {
+  margin: 0 0 6px;
+}
+
+.provenance small {
+  color: #607080;
+  overflow-wrap: anywhere;
+}

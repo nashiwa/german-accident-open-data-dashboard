@@ -1,0 +1,37 @@
+<section class="page">
+  <div class="section-heading">
+    <h2>Accident Explorer</h2>
+    <p>Filter stored accident rows through the backend API.</p>
+  </div>
+
+  <form class="filters" (ngSubmit)="search()">
+    <label>
+      Year
+      <input type="number" name="year" [(ngModel)]="year" />
+    </label>
+
+    <label>
+      State code
+      <input name="state" [(ngModel)]="state" />
+    </label>
+
+    <label>
+      Participant
+      <select name="participant" [(ngModel)]="participant">
+        <option value="">All</option>
+        <option value="pedestrian">Pedestrian</option>
+        <option value="bicycle">Bicycle</option>
+        <option value="car">Car</option>
+        <option value="motorcycle">Motorcycle</option>
+      </select>
+    </label>
+
+    <button type="submit">Run Query</button>
+  </form>
+
+  <article *ngIf="result$ | async as result">
+    <span>Accident count</span>
+    <strong>{{ result.accident_count ?? 0 }}</strong>
+    <small *ngIf="result.provenance.length">Source: {{ result.provenance[0].source }}</small>
+  </article>
+</section>

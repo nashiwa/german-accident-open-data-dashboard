@@ -1,0 +1,26 @@
+<section class="page">
+  <div class="section-heading">
+    <h2>Examiner Questions</h2>
+    <p>Preset answers backed by the API and stored import provenance.</p>
+  </div>
+
+  <ng-container *ngIf="result$ | async as result; else loading">
+    <div class="grid">
+      <article *ngFor="let card of cards(result)">
+        <span>{{ card.label }}</span>
+        <strong>{{ card.value }}</strong>
+        <code>{{ card.endpoint }}</code>
+      </article>
+    </div>
+
+    <section class="provenance" *ngIf="result.provenance.length">
+      <h3>Latest Source Snapshot</h3>
+      <p>{{ result.provenance[0].source }} · {{ result.provenance[0].source_type }} · {{ result.provenance[0].rows_read }} rows read</p>
+      <small>{{ result.provenance[0].url_or_path }}</small>
+    </section>
+  </ng-container>
+
+  <ng-template #loading>
+    <p class="muted">Loading questions from API...</p>
+  </ng-template>
+</section>

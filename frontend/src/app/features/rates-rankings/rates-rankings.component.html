@@ -1,0 +1,55 @@
+<section class="page">
+  <div class="section-heading">
+    <h2>Rates And Rankings</h2>
+    <p>Population-based rates appear after population indicators are imported.</p>
+  </div>
+
+  <form class="filters" (ngSubmit)="load()">
+    <label>
+      Year
+      <input type="number" name="year" [(ngModel)]="year" />
+    </label>
+
+    <label>
+      Level
+      <select name="level" [(ngModel)]="level">
+        <option value="state">State</option>
+        <option value="district">District</option>
+        <option value="municipality">Municipality</option>
+      </select>
+    </label>
+
+    <button type="submit">Load Ranking</button>
+  </form>
+
+  <section class="table-card" *ngIf="result as result">
+    <div class="chart-panel" *ngIf="result.results.length">
+      <canvas #rankingChart aria-label="Ranking chart"></canvas>
+    </div>
+
+    <table *ngIf="result.results.length; else empty">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Accidents</th>
+          <th>Population</th>
+          <th>Rate / 100,000</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of result.results">
+          <td>
+            <span>{{ row.name || row.ags }}</span>
+            <small>{{ row.level }} · {{ row.ags }}</small>
+          </td>
+          <td>{{ row.accident_count | number }}</td>
+          <td>{{ row.population | number }}</td>
+          <td>{{ row.rate_per_100000 | number: '1.1-1' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #empty>
+      <p>No rate data yet. Import population indicators to enable this view.</p>
+    </ng-template>
+  </section>
+</section>

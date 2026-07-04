@@ -1,0 +1,52 @@
+<section class="page">
+  <div class="section-heading">
+    <h2>Spatial Preview</h2>
+    <p>Sampled accident points from the preview API, scaled to the current result bounds.</p>
+  </div>
+
+  <form class="filters">
+    <label>
+      Year
+      <input type="number" name="year" [(ngModel)]="year" />
+    </label>
+
+    <label>
+      State code
+      <input name="state" [(ngModel)]="state" maxlength="2" />
+    </label>
+
+    <label>
+      Participant
+      <select name="participant" [(ngModel)]="participant">
+        <option value="">All</option>
+        <option value="pedestrian">Pedestrian</option>
+        <option value="bicycle">Bicycle</option>
+        <option value="car">Car</option>
+        <option value="motorcycle">Motorcycle</option>
+      </select>
+    </label>
+
+    <button type="button" (click)="load()">Load Points</button>
+  </form>
+
+  <section class="map-panel" *ngIf="accidents.length; else empty">
+    <div class="map-summary">
+      <strong>{{ accidents.length | number }}</strong>
+      <span>preview rows</span>
+    </div>
+    <svg viewBox="0 0 600 360" role="img" aria-label="Accident spatial preview">
+      <rect x="16" y="16" width="568" height="328" rx="8"></rect>
+      <line x1="32" y1="328" x2="568" y2="328"></line>
+      <line x1="32" y1="32" x2="32" y2="328"></line>
+      <circle *ngFor="let point of points" [attr.cx]="point.x" [attr.cy]="point.y" r="4">
+        <title>{{ point.id }} · {{ point.label }}</title>
+      </circle>
+    </svg>
+  </section>
+
+  <ng-template #empty>
+    <section class="empty-state">
+      <p>{{ status || 'Load points to preview the spatial distribution for a year and state.' }}</p>
+    </section>
+  </ng-template>
+</section>

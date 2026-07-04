@@ -1,0 +1,21 @@
+<div class="shell">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">DBW Accident Platform</p>
+      <h1>Examiner Dashboard</h1>
+    </div>
+
+    <nav aria-label="Primary navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Questions</a>
+      <a routerLink="/explorer" routerLinkActive="active">Explorer</a>
+      <a routerLink="/rankings" routerLinkActive="active">Rankings</a>
+      <a routerLink="/map" routerLinkActive="active">Map</a>
+      <a routerLink="/sources" routerLinkActive="active">Sources</a>
+      <a href="http://localhost:8000/api/docs/" target="_blank" rel="noreferrer">API Docs</a>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet />
+  </main>
+</div>

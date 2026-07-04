@@ -1,0 +1,74 @@
+.page {
+  display: grid;
+  gap: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 4px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #607080;
+}
+
+.filters,
+.table-card {
+  border: 1px solid #d7dde5;
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.filters {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #536170;
+  font-size: 0.88rem;
+}
+
+input,
+select {
+  min-width: 150px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #c8d2dc;
+  border-radius: 6px;
+}
+
+button {
+  height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #0f4c81;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.chart-panel {
+  height: 280px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
