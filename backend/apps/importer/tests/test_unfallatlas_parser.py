@@ -36,3 +36,21 @@ def test_parse_unfallatlas_zip_with_csv(tmp_path):
 
     assert rows[0]["source_event_id"] == "zip-event"
     assert rows[0]["longitude"] == "13.40500000"
+
+
+def test_parse_unfallatlas_zip_with_txt_data_file(tmp_path):
+    from zipfile import ZipFile
+
+    zip_file = tmp_path / "Unfallorte2021_EPSG25832_CSV.zip"
+    txt_content = (
+        "OID_;UIDENTSTLAE;ULAND;UREGBEZ;UKREIS;UGEMEINDE;UJAHR;UMONAT;USTUNDE;UWOCHENTAG;UKATEGORIE;UART;UTYP1;ULICHTVERH;IstStrassenzustand;IstRad;IstPKW;IstFuss;IstKrad;IstGkfz;IstSonstige;XGCSWGS84;YGCSWGS84\n"
+        "1;txt-event;01;0;02;000;2021;05;14;2;3;5;2;0;0;0;1;0;0;0;0;10,148875393000026;54,306951053000034\n"
+    )
+    with ZipFile(zip_file, "w") as archive:
+        archive.writestr("Unfallorte2021_EPSG25832_CSV/schema.ini", "unused")
+        archive.writestr("Unfallorte2021_EPSG25832_CSV/Unfallorte_2021_LinRef.txt", txt_content)
+
+    rows = list(parse_unfallatlas_csv(zip_file))
+
+    assert rows[0]["source_event_id"] == "txt-event"
+    assert rows[0]["year"] == 2021

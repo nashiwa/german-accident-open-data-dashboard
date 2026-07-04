@@ -3,6 +3,9 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
+DATA_FILE_SUFFIXES = (".csv", ".txt")
+
+
 def _decimal(value: str) -> str:
     return value.replace(",", ".").strip()
 
@@ -48,10 +51,10 @@ def parse_unfallatlas_csv(path: Path):
     path = Path(path)
     if path.suffix.lower() == ".zip":
         with ZipFile(path) as archive:
-            csv_names = [name for name in archive.namelist() if name.lower().endswith(".csv")]
-            if not csv_names:
-                raise ValueError(f"No CSV file found in {path}")
-            with archive.open(csv_names[0]) as raw_handle:
+            data_names = [name for name in archive.namelist() if name.lower().endswith(DATA_FILE_SUFFIXES)]
+            if not data_names:
+                raise ValueError(f"No CSV or TXT data file found in {path}")
+            with archive.open(data_names[0]) as raw_handle:
                 text = (line.decode("utf-8-sig") for line in raw_handle)
                 yield from _iter_csv_rows(text)
         return
